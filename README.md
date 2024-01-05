@@ -13,6 +13,10 @@ A suite of documented packages built with [mkdocs.org](https://www.mkdocs.org).
 
 The layout is straightforward but notice the symlinks that let the documentation live alongside associated code.
 
+This repo mimics the layout of a monorepo containing two example Python packages. Note that they
+don't need to ever be installed to build the docs, so the top-level `pyproject.toml` just stores
+a `docs` dependency group.
+
 ```
 .
 ├── docs
