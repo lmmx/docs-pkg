@@ -69,10 +69,16 @@ plugins:
         python:
           paths: [src]
           options:
-            show_if_no_docstring: true # default: false
-            show_submodules: true # default: false
-            filters:
-              - "!^_[^_]" # default value
+            members_order: source
+            separate_signature: true
+            filters: ["!^_"]
+            docstring_options:
+              ignore_init_summary: true
+            merge_init_into_class: true
+            line_length: 88 # default: 60
+            show_if_no_docstring: true
+            show_submodules: true
+            show_signature_annotations: true
   - search
   - section-index
   - social:
