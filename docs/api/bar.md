@@ -1,0 +1,1 @@
+::: bar.src.bar
