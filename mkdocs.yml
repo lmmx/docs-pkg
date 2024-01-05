@@ -45,12 +45,17 @@ extra:
   generator: false
 
 markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+      title: Page contents
   - admonition
   - attr_list
   - md_in_html
   - mdantic
   - pymdownx.blocks.definition
   - pymdownx.details
+  - pymdownx.extra
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -77,6 +82,10 @@ plugins:
             merge_init_into_class: true
             line_length: 88 # default: 60
             show_if_no_docstring: true
+            show_root_heading: true
+            # group_by_category: true
+            # members: []
+            show_source: false
             show_submodules: true
             show_signature_annotations: true
   - search
