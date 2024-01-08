@@ -1,19 +1,18 @@
+[build-system]
+build-backend = "pdm.backend"
+requires = ["pdm-backend"]
+
 [project]
-name = "foo"
-version = "0.1.0"
-description = "foo"
 authors = [
-    {name = "Louis Maddox", email = "louismmx@gmail.com"},
+    {email = "louismmx@gmail.com", name = "Louis Maddox"},
 ]
 dependencies = []
-requires-python = ">=3.11"
-readme = "README.md"
+description = "foo"
 license = {text = "MIT"}
-
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
-
+name = "foo"
+readme = "README.md"
+requires-python = ">=3.11"
+version = "0.1.0"
 
 [tool.pdm]
 package-type = "library"
