@@ -1,5 +1,5 @@
 {
   "buildCommand": "python3 -m pdm run mkdocs build",
   "outputDirectory": "site",
-  "installCommand": "amazon-linux-extras install epel && amazon-linux-extras list | grep openssl && yum install openssl && python3 --version && python3 -m pip install pdm && python3 -m pdm install -v && ls -a && python3 -m pdm run mkdocs"
+  "installCommand": "amazon-linux-extras install epel && amazon-linux-extras list && yum install openssl && python3 --version && python3 -m pip install pdm && python3 -m pdm install -v && ls -a && python3 -m pdm run mkdocs"
 }
