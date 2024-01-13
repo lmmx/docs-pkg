@@ -82,9 +82,13 @@ python3 -m pip install -v -r docs/reqs/vercel.txt && \
 python3 -m mkdocs
 ```
 
-The pre-commit hook in `.pre-commit-config.yaml` freezes the dependency lockfile into a static list
-of requirements at `docs/reqs/vercel.txt`. There's a `vercel` development dependency group in the
+The pre-commit hook in [`.pre-commit-config.yaml`][pchook] freezes the dependency lockfile into a static list
+of requirements at [`docs/reqs/vercel.txt`][vercelreqs]. There's [a `vercel` development dependency group][verceldg] in the
 `pyproject.toml` config pinning `urllib3<2` without which mkdocs will fail.
+
+[pchook]: https://github.com/lmmx/docs-pkg/blob/1ecde3785a79a5ef0a57ef54f27925ed95074434/.pre-commit-config.yaml#L47-L53
+[vercelreqs]: https://github.com/lmmx/docs-pkg/blob/master/docs/reqs/vercel.txt
+[verceldg]: https://github.com/lmmx/docs-pkg/blob/1ecde3785a79a5ef0a57ef54f27925ed95074434/pyproject.toml#L36-L38
 
 > The `urllib3` is pinned like this because Vercel "runners" are based on the
 > Amazon Linux 2 container image (a variant of RHEL, which has OpenSSL v1.0.2
