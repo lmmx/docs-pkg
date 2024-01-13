@@ -1,1 +1,1 @@
-::: bar.src.bar
+::: bar

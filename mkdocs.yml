@@ -5,6 +5,7 @@ site_description: >-
 site_url: https://docs-pkg.readthedocs.io/
 repo_name: lmmx/docs-pkg
 repo_url: https://github.com/lmmx/docs-pkg
+watch: [src]
 strict: true
 
 extra_css:
@@ -72,7 +73,7 @@ plugins:
       default_handler: python
       handlers:
         python:
-          paths: [src]
+          paths: [src/*/src/]
           options:
             members_order: source
             separate_signature: true
