@@ -1,0 +1,13 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "python3 -m pdm run mkdocs build",
+        "outputDirectory": "site",
+        "installCommand": "python3 --version && python3 -m pip install pdm 'urllib3<2' && python3 -m pdm config python.use_venv false && python3 -m pdm install -v && python3 -m pdm run mkdocs"
+      }
+    }
+  ]
+}
