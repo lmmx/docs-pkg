@@ -65,6 +65,11 @@ a `docs` dependency group.
 
 ## Deploying with Vercel
 
+The Vercel deployment config is stored in `vercel.json` at the project root.
+
+It equates to setting the following manually in the web view
+(but it's easier to let it be configured automatically from the JSON file):
+
 - Build command: `python3 -m pdm run mkdocs build`
 - Output directory: `site`
 - Install command: (remove the newlines from the command below)
