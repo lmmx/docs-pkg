@@ -28,7 +28,6 @@ package-type = "application"
 
 [tool.pdm.dev-dependencies]
 docs = [
-    "markdown-mdantic>=2.1.0",
     "mkdocs-material[recommended,imaging]>=9.5.2",
     "mkdocs-section-index>=0.3.8",
     "mkdocs>=1.5.3",
