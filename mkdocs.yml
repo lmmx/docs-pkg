@@ -15,7 +15,6 @@ copyright: Copyright &copy; 2024 Louis Maddox
 
 theme:
   name: material
-  custom_dir: docs/theme
   palette:
     - scheme: default
       primary: white
