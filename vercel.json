@@ -1,5 +1,5 @@
 {
   "buildCommand": "python3 -m pdm run mkdocs build",
   "outputDirectory": "site",
-  "installCommand": "sh install_openssl.sh && python3 --version && python3 -m pip install pdm && python3 -m pdm install -v && ls -a && python3 -m pdm run mkdocs"
+  "installCommand": "python3 --version && python3 -m pip install pdm 'urllib3<2' && python3 -m pdm config python.use_venv false && python3 -m pdm add 'urllib3<2' && python3 -m pdm install -v && python3 -m pdm run mkdocs"
 }
