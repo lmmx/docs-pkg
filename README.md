@@ -77,16 +77,20 @@ It equates to setting the following manually in the web view
 - **Install command** is the command below without the newlines:
 
 ```bash
-python3 --version && python3 -m pip install pdm "urllib3<2" && \
-python3 -m pdm config python.use_venv false && \
+python3 --version && \
+python3 -m pip install pdm 'urllib3<2' && \
+python3 -m pdm add 'urllib3<2' && \
 python3 -m pdm install -v && \
-python3 -m pdm run mkdocs
+python3 -m pdm run mkdocs"
 ```
 
-The installation process pins `urllib3` to pre-v2 when installing `pdm`,
-switches off the use of a `.venv/`
-(which is a local directory where all the dependencies get
-installed into, which we don't want in this case) and runs `mkdocs`.
+The installation process pins `urllib3` to pre-v2 when installing `pdm`
+(as well as when running it) and runs `mkdocs`.
+
+> The `urllib3` is pinned like this because Vercel "runners" are based on the
+> Amazon Linux 2 container image (a variant of RHEL, which has OpenSSL v1.0.2
+> whereas the `urllib3` v2 release [imposes](https://github.com/urllib3/urllib3/issues/2168)
+> a minimum of OpenSSL v1.1.1).
 
 ### Vercel integration with GitHub
 
