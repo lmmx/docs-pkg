@@ -4,6 +4,7 @@ wget https://www.openssl.org/source/${OPENSSL_VERSION}.tar.gz && \
 tar -xzf ${OPENSSL_VERSION}.tar.gz && \
 cd ${OPENSSL_VERSION} && \
 ./config --prefix=$HOME/openssl --openssldir=$HOME/openssl shared zlib && \
-make && \
-make install && \
+make 2>&1 > /dev/null && \
+make install 2>&1 > /dev/null && \
+which openssl && \
 openssl version
