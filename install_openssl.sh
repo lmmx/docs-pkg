@@ -7,4 +7,7 @@ cd ${OPENSSL_VERSION} && \
 make 2>&1 > /dev/null && \
 make install 2>&1 > /dev/null && \
 which openssl && \
+rm $(which openssl) && \
+ln -s $HOME/openssl/bin/openssl /usr/bin/openssl && \
+which openssl && \
 openssl version
