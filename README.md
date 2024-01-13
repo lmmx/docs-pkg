@@ -65,21 +65,30 @@ a `docs` dependency group.
 
 ## Deploying with Vercel
 
+### Configuring Vercel to build a `mkdocs` website
+
 The Vercel deployment config is stored in `vercel.json` at the project root.
 
 It equates to setting the following manually in the web view
 (but it's easier to let it be configured automatically from the JSON file):
 
-- Build command: `python3 -m pdm run mkdocs build`
-- Output directory: `site`
-- Install command: (remove the newlines from the command below)
+- **Build command** `python3 -m pdm run mkdocs build`
+- **Output directory** `site`
+- **Install command** is the command below without the newlines:
 
 ```bash
-python3 --version && python3 -m pip install pdm "urllib3<2" &&
-python3 -m pdm config python.use_venv false &&
-python3 -m pdm install -v &&
+python3 --version && python3 -m pip install pdm "urllib3<2" && \
+python3 -m pdm config python.use_venv false && \
+python3 -m pdm install -v && \
 python3 -m pdm run mkdocs
 ```
+
+The installation process pins `urllib3` to pre-v2 when installing `pdm`,
+switches off the use of a `.venv/`
+(which is a local directory where all the dependencies get
+installed into, which we don't want in this case) and runs `mkdocs`.
+
+### Vercel integration with GitHub
 
 To install a Vercel CI bot that will comment on all of your PRs,
 install the [Vercel GitHub App](https://github.com/apps/vercel)
