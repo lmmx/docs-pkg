@@ -1,5 +1,5 @@
 {
   "buildCommand": "python3 -m pdm run mkdocs build",
   "outputDirectory": "site",
-  "installCommand": "yum install -y gcc make perl wget && OPENSSL_VERSION='openssl-1.1.1m' && wget https://www.openssl.org/source/${OPENSSL_VERSION}.tar.gz && tar -xzf ${OPENSSL_VERSION}.tar.gz && cd ${OPENSSL_VERSION} && ./config --prefix=$HOME/openssl --openssldir=$HOME/openssl shared zlib && make && make install && openssl version && python3 --version && python3 -m pip install pdm && python3 -m pdm install -v && ls -a && python3 -m pdm run mkdocs"
+  "installCommand": "./install_openssl.sh && python3 --version && python3 -m pip install pdm && python3 -m pdm install -v && ls -a && python3 -m pdm run mkdocs"
 }
