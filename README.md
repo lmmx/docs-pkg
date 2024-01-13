@@ -80,3 +80,18 @@ python3 -m pdm config python.use_venv false &&
 python3 -m pdm install -v &&
 python3 -m pdm run mkdocs
 ```
+
+To install a Vercel CI bot that will comment on all of your PRs,
+install the [Vercel GitHub App](https://github.com/apps/vercel)
+on your account (configurable for all repos or select repos).
+
+This gives both PR deployment and a main trunk deployment
+(visible from the _Deployments_ panel on the right hand side of the repo front page or at
+[`/deployments`](https://github.com/lmmx/docs-pkg/deployments)).
+
+See also:
+
+- [**Project configuration**](https://vercel.com/docs/projects/project-configuration): reference
+  for the Vercel JSON format.
+- [**Vercel for GitHub**](https://vercel.com/docs/deployments/git/vercel-for-github): referenc for
+  the Vercel GitHub app.
