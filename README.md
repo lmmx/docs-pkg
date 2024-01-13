@@ -72,20 +72,19 @@ The Vercel deployment config is stored in `vercel.json` at the project root.
 It equates to setting the following manually in the web view
 (but it's easier to let it be configured automatically from the JSON file):
 
-- **Build command** `python3 -m pdm run mkdocs build`
+- **Build command** `mkdocs build`
 - **Output directory** `site`
-- **Install command** is the command below without the newlines:
+- **Install command** is the command below, but all on one line:
 
 ```bash
 python3 --version && \
-python3 -m pip install pdm 'urllib3<2' && \
-python3 -m pdm add 'urllib3<2' && \
-python3 -m pdm install -v && \
-python3 -m pdm run mkdocs"
+python3 -m pip install -v -r docs/reqs/vercel.txt && \
+python3 -m mkdocs
 ```
 
-The installation process pins `urllib3` to pre-v2 when installing `pdm`
-(as well as when running it) and runs `mkdocs`.
+The pre-commit hook in `.pre-commit-config.yaml` freezes the dependency lockfile into a static list
+of requirements at `docs/reqs/vercel.txt`. There's a `vercel` development dependency group in the
+`pyproject.toml` config pinning `urllib3<2` without which mkdocs will fail.
 
 > The `urllib3` is pinned like this because Vercel "runners" are based on the
 > Amazon Linux 2 container image (a variant of RHEL, which has OpenSSL v1.0.2
