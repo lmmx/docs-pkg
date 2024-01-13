@@ -32,7 +32,6 @@ docs = [
     "mkdocs-section-index>=0.3.8",
     "mkdocs>=1.5.3",
     "mkdocstrings[python]>=0.24.0",
-    "openssl>=1.1.1",
 ]
 
 [tool.ruff]
