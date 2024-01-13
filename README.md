@@ -90,6 +90,15 @@ installed into, which we don't want in this case) and runs `mkdocs`.
 
 ### Vercel integration with GitHub
 
+#### Privacy
+
+The Vercel website checks if you're logged into GitHub when you load it.
+If your repo is private, the website will be gated by a GitHub login.
+This repo is public ([here](https://github.com/lmmx/docs-pkg)) therefore
+so is the website (the default branch deployment [here](https://docs-pkg-git-master-lmmx.vercel.app/) as well as all the other PR/commit-specific deployments).
+
+#### CI bot
+
 To install a Vercel CI bot that will comment on all of your PRs,
 install the [Vercel GitHub App](https://github.com/apps/vercel)
 on your account (configurable for all repos or select repos).
@@ -98,7 +107,9 @@ This gives both PR deployment and a main trunk deployment
 (visible from the _Deployments_ panel on the right hand side of the repo front page or at
 [`/deployments`](https://github.com/lmmx/docs-pkg/deployments)).
 
-See also:
+#### Vercel config documentation
+
+See these official docs for more details:
 
 - [**Project configuration**](https://vercel.com/docs/projects/project-configuration): reference
   for the Vercel JSON format.
