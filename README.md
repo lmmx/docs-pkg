@@ -62,3 +62,16 @@ a `docs` dependency group.
   - One important setting to override is `members` which lets you list the members in the order you want them to appear.
     - Otherwise, they appear in alphabetical order (the `members_order` setting defaults to
       `"rendering.Order.alphabetical.value"`, I prefer changing it to `"source"`).
+
+## Deploying with Vercel
+
+- Build command: `python3 -m pdm run mkdocs build`
+- Output directory: `site`
+- Install command: (remove the newlines from the command below)
+
+```bash
+python3 --version && python3 -m pip install pdm "urllib3<2" &&
+python3 -m pdm config python.use_venv false &&
+python3 -m pdm install -v &&
+python3 -m pdm run mkdocs
+```
