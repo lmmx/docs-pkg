@@ -33,6 +33,9 @@ docs = [
     "mkdocs>=1.5.3",
     "mkdocstrings[python]>=0.24.0",
 ]
+vercel = [
+    "urllib3<2",
+]
 
 [tool.ruff]
 ignore = ["C408", "C901", "E501", "E741"]
