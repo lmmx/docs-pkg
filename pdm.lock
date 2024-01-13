@@ -5,4 +5,4 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:44c6bb92b22c6732152234a228454f4eb63ea07842e7e4ea8bb6400b6676d9b5"
+content_hash = "sha256:fa1a0021f31ca6f041ce5b855c4ff4876703828bdecfd62f04c1b910d492185b"
