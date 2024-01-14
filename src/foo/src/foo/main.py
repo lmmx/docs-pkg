@@ -1,12 +1,15 @@
-from pydantic import BaseModel
+from dataclasses import dataclass
 
 
 __all__ = ["A"]
 
 
-class A(BaseModel):
+@dataclass
+class A:
     """
-    This is an example of a documented Pydantic model.
+    This is an example of a documented class.
+
+    [.x][]
 
     Attributes:
         x: An example number.
