@@ -95,11 +95,6 @@ plugins:
 
 nav:
   - Home: index.md
-  - Usage:
-      - User guides: usage/index.md
-      - usage/bar.md
-      - usage/foo.md
   - API Reference:
       - APIs: api/index.md
-      - api/bar.md
       - api/foo.md
