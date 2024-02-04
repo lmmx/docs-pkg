@@ -2,60 +2,67 @@
 title: Deploying with Vercel
 ---
 
-## Configuring Vercel to build a `mkdocs` website
+!!! note inline end "Vercel official documentation"
+
+    - [**Configuring Projects with `vercel.json`**](https://vercel.com/docs/projects/project-configuration)
+    - [**Deploying GitHub Projects with Vercel**](https://vercel.com/docs/deployments/git/vercel-for-github)
+
+!!! info "Config is versioned at `vercel.json` in the repo root directory"
+
+    ``` json
+    --8<-- "vercel.json"
+    ```
+
+## :material-code-json: Config to build a `mkdocs` site
 
 The Vercel deployment config is stored in `vercel.json` at the project root.
 
-It equates to setting the following manually in the web view
-(but it's easier to let it be configured automatically from the JSON file):
+It sets the following on your docs site deployment:
 
-- **Build command** `mkdocs build`
-- **Output directory** `site`
-- **Install command** is the command below, but all on one line:
+- **Build command**  
+  `mkdocs build` but ensured to be run through PDM
+- **Output directory**  
+  `site`
+- **Install command**  
+  The command below (but as a one-liner):
 
 ```bash
 python3 --version && \
-python3 -m pip install -v -r docs/reqs/vercel.txt && \
-python3 -m mkdocs
+python3 -m pip install pdm 'urllib3<2' && \
+python3 -m pdm install --no-default -dG docs -v && \
+python3 -m pdm run mkdocs
 ```
 
-The pre-commit hook in [`.pre-commit-config.yaml`][pchook] freezes the dependency lockfile into a static list
-of requirements at [`docs/reqs/vercel.txt`][vercelreqs]. There's a `vercel` development dependency group in the
-[`pyproject.toml`][verceldg] config pinning `urllib3<2` without which mkdocs will fail.
+!!! bug inline end "Vercel and `urllib3<2`"
 
-[pchook]: https://github.com/lmmx/docs-pkg/blob/1ecde3785a79a5ef0a57ef54f27925ed95074434/.pre-commit-config.yaml#L47-L53
-[vercelreqs]: https://github.com/lmmx/docs-pkg/blob/master/docs/reqs/vercel.txt
-[verceldg]: https://github.com/lmmx/docs-pkg/blob/1ecde3785a79a5ef0a57ef54f27925ed95074434/pyproject.toml#L36-L38
+    The `urllib3` dep is pinned because Vercel "runners" are based on
+    Amazon Linux 2,
+    a close relative of [RHEL](https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux)
+    which shipped with OpenSSL v1.0.2, whereas `urllib3` v2 [imposes](https://github.com/urllib3/urllib3/issues/2168)
+    a minimum of OpenSSL v1.1.1.
 
-> The `urllib3` is pinned like this because Vercel "runners" are based on the
-> Amazon Linux 2 container image (a variant of RHEL, which has OpenSSL v1.0.2
-> whereas the `urllib3` v2 release [imposes](https://github.com/urllib3/urllib3/issues/2168)
-> a minimum of OpenSSL v1.1.1).
+The install command will:
 
-## Vercel integration with GitHub
+- Print out the Python version (3.9.8 at the time of writing),
+- Install PDM (and v1.x of urllib3; see note in sidebar),
+- Install the `docs` dependency group with the `-G` flag (it's a "dev dependency" so you also use `-d`)
+- Run `mkdocs` to print out the usage (as confirmation that it was successfully installed)
 
-### Privacy
+## GitHub integration
 
-The Vercel website checks if you're logged into GitHub when you load it.
-If your repo is private, the website will be gated by a GitHub login.
-This repo is public ([here](https://github.com/lmmx/docs-pkg)) therefore
-so is the website (the default branch deployment [here](https://docs-pkg-git-master-lmmx.vercel.app/) as well as all the other PR/commit-specific deployments).
+### :material-shield-lock: Privacy
 
-### CI bot
+If your repo is private, Vercel will require users to login to determine access.
+
+This repo is public ([here](https://github.com/lmmx/docs-pkg)) so
+the website is too (both the default branch [here](https://docs-pkg.vercel.app/)
+as well as preview deployments for commits in PRs).
+
+### :material-rocket-launch: CI bot
 
 To install a Vercel CI bot that will comment on all of your PRs,
 install the [Vercel GitHub App](https://github.com/apps/vercel)
-on your account (configurable for all repos or select repos).
+on your account.
 
-This gives both PR deployment and a main trunk deployment
-(visible from the _Deployments_ panel on the right hand side of the repo front page or at
-[`/deployments`](https://github.com/lmmx/docs-pkg/deployments)).
-
-### Vercel config documentation
-
-See these official docs for more details:
-
-- [**Project configuration**](https://vercel.com/docs/projects/project-configuration): reference
-  for the Vercel JSON format.
-- [**Vercel for GitHub**](https://vercel.com/docs/deployments/git/vercel-for-github): referenc for
-  the Vercel GitHub app.
+It's shown in a _Deployments_ panel to the right of the repo and at
+[`/deployments`](https://github.com/lmmx/docs-pkg/deployments).

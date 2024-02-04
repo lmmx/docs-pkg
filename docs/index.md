@@ -2,7 +2,9 @@
 title: Docs Pkg
 ---
 
-A suite of documented packages built with [mkdocs.org](https://www.mkdocs.org).
+A suite of documented packages built with the
+[Material for mkdocs](https://squidfunk.github.io/mkdocs-material/)
+framework on top of [mkdocs](https://www.mkdocs.org).
 
 ## Commands
 
