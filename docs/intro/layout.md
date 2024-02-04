@@ -42,4 +42,3 @@ a `docs` dependency group.
         │   └── foo
         └── tests
 ```
-
