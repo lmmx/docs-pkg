@@ -44,11 +44,3 @@ repos:
         args: [--fix]
       # Run the formatter
       - id: ruff-format
-  - repo: https://github.com/pdm-project/pdm
-    rev: 2.11.2
-    hooks:
-      # export python requirements for docs build
-      - id: pdm-export
-        args: ['-dG', docs, '-dG', vercel, '-o', 'docs/reqs/vercel.txt', '--without-hashes', '--no-default']
-        files: ^pdm.lock$
-      - id: pdm-lock-check
