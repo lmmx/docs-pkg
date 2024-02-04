@@ -1,7 +1,7 @@
 # API reference
 
 !!! info inline end "What is autodocs?"
-    
+
     As the name suggests, _autodocs_ means that if you write docstrings in your code
     they will be automatically turned into docs by using the following syntax:
 
@@ -15,4 +15,3 @@
     [mkdocstrings](https://mkdocstrings.github.io/#quick-usage).
 
 This section contains API documentation using the `mkdocstrings` autodoc framework.
-

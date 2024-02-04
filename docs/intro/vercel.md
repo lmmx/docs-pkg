@@ -19,11 +19,11 @@ The Vercel deployment config is stored in `vercel.json` at the project root.
 
 It sets the following on your docs site deployment:
 
-- **Build command**  
+- **Build command**
   `mkdocs build` but ensured to be run through PDM
-- **Output directory**  
+- **Output directory**
   `site`
-- **Install command**  
+- **Install command**
   The command below (but as a one-liner):
 
 ```bash
