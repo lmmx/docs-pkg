@@ -16,3 +16,7 @@ The user guides in this section are intended to offer a straightforward overview
 | :fontawesome-solid-ban:         | The service's entire documentation is missing. |
 | :fontawesome-solid-toggle-off:  | The API interface documentation is missing.    |
 | :fontawesome-solid-toggle-on:   | The API interface documentation is available.  |
+
+This is just an example, there's a search box
+[on the _Material for mkdocs_ docs](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
+to find the short codes for icons, emojis, etc. (which are all shipped by default).

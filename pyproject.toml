@@ -24,7 +24,7 @@ Homepage = "https://github.com/lmmx/docs-pkg"
 Repository = "https://github.com/lmmx/docs-pkg.git"
 
 [tool.pdm]
-package-type = "application"
+distribution = false
 
 [tool.pdm.dev-dependencies]
 docs = [

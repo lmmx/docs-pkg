@@ -94,7 +94,11 @@ plugins:
         color: #173a58
 
 nav:
-  - Home: index.md
+  - Home:
+      - index.md
+      - intro/layout.md
+      - intro/vercel.md
+      - intro/tips.md
   - Usage:
       - User guides: usage/index.md
       - usage/bar.md
