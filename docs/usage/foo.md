@@ -1,1 +1,0 @@
-../../src/foo/README.md
