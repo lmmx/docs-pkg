@@ -4,11 +4,11 @@ requires = ["pdm-backend"]
 
 [project]
 authors = [
-    {email = "louismmx@gmail.com", name = "Louis Maddox"},
+    { email = "louismmx@gmail.com", name = "Louis Maddox" },
 ]
 dependencies = []
 description = "foo"
-license = {text = "MIT"}
+license = { text = "MIT" }
 name = "foo"
 readme = "README.md"
 requires-python = ">=3.11"
